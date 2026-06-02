@@ -95,12 +95,5 @@ func main() {
 	}
 
 	jsonData, _ := json.MarshalIndent(stats, "", "  ")
-	err := os.WriteFile("statistics.json", jsonData, 0644)
-	if err != nil {
-		fmt.Printf("写入文件时出错: %v\n", err)
-		os.Exit(1)
-	}
-
-	fmt.Printf("统计完成: %d 次访问, %s\n", totalRequests, formatTraffic(totalTraffic))
-	fmt.Printf("时间范围: %s ~ %s\n", startTime.Format("2006/01/02 15:04:05"), endTime.Format("2006/01/02 15:04:05"))
+	fmt.Println(string(jsonData))
 }
